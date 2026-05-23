@@ -35,6 +35,7 @@ export default function DiagnosticLab() {
   return (
 
     <section
+  id="diagnostics"
       ref={sectionRef}
       className="relative py-32 px-6 md:px-16 bg-[#030303] overflow-hidden"
     >

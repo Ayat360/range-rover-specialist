@@ -72,7 +72,10 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black flex items-center">
+    <section
+  id="home"
+  className="relative min-h-screen overflow-hidden bg-black flex items-center"
+>
 
       {/* background image */}
 
@@ -128,11 +131,11 @@ export default function Hero() {
           className="mt-10 flex flex-wrap gap-4"
         >
 
-          <button className="px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
+          <button className="magnetic px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
             Book Appointment
           </button>
 
-          <button className="px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
+          <button className="magnetic px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
             Explore Services
           </button>
 

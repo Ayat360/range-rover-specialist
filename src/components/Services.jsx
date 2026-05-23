@@ -67,6 +67,7 @@ export default function Services() {
   return (
 
     <section
+  id="services"
       ref={sectionRef}
       className="relative py-32 px-6 md:px-16 bg-[#050505]"
     >

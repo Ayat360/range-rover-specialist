@@ -4,6 +4,8 @@ import Services from "./components/Services"
 import Models from "./components/Models"
 import DiagnosticLab from "./components/DiagnosticLab"
 import StorySection from "./components/StorySection"
+import Cursor from "./components/Cursor"
+import Gallery from "./components/Gallery"
 
 export default function App() {
 
@@ -15,6 +17,8 @@ export default function App() {
       <Models />
       <DiagnosticLab />
       <StorySection />
+      <Cursor />
+      <Gallery />
     </>
   )
 }

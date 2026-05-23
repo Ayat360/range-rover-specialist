@@ -152,11 +152,11 @@ export default function StorySection() {
 
             <div className="mt-10 flex gap-4 flex-wrap">
 
-              <button className="px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
+              <button className="magnetic px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
                 Book Appointment
               </button>
 
-              <button className="px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
+              <button className="magnetic px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
                 Contact Specialist
               </button>
 
