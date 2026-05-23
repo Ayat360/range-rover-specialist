@@ -11,6 +11,7 @@ import Footer from "./components/Footer"
 
 import Loader from "./components/Loader"
 import useSound from "./hooks/useSound"
+import ControlPanel from "./components/ControlPanel"
 
 export default function App() {
 
@@ -29,6 +30,7 @@ export default function App() {
       <StorySection />
       <Gallery />
       <Booking />
+      <ControlPanel />
       <Footer />
     </>
   )
