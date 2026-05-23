@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root{
+  --bg:#050505;
+  --card:#0d0d0d;
+  --border:#1f1f1f;
+  --white:#ffffff;
+  --gray:#9ca3af;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+::selection{
+  background:white;
+  color:black;
+}
+.wave{
+  width:200%;
+  height:2px;
+  background:
+  repeating-linear-gradient(
+    90deg,
+    white 0px,
+    white 40px,
+    transparent 40px,
+    transparent 80px
+  );
+
+  animation:waveMove 2s linear infinite;
+}
+
+@keyframes waveMove{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-80px);
+  }
+
+}
