@@ -51,7 +51,7 @@ export default function StorySection() {
       <div className="story-panel relative h-screen overflow-hidden">
 
         <img
-          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop"
+          src="https://i.pinimg.com/736x/34/8b/8f/348b8fe76bb3f6013c75f07fa4d1f28a.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -87,7 +87,7 @@ export default function StorySection() {
       <div className="story-panel relative h-screen overflow-hidden">
 
         <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop"
+          src="https://i.pinimg.com/736x/15/14/aa/1514aaf6564e9de9994e4e62f0b9cd6a.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -127,7 +127,7 @@ export default function StorySection() {
       <div className="story-panel relative h-screen overflow-hidden">
 
         <img
-          src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop"
+          src="https://i.pinimg.com/736x/00/7f/70/007f70b73a7df3b415ab6e0b9e70e4f3.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />

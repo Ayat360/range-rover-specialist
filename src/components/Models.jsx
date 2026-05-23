@@ -8,21 +8,21 @@ const models = [
   {
     name: "RANGE ROVER SPORT",
     image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/e1/bb/b6/e1bbb640782f68abf710202b8c404ff0.jpg",
     desc: "Dynamic luxury engineered for power and precision.",
   },
 
   {
     name: "RANGE ROVER VELAR",
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/92/45/b3/9245b35610b1d72f5f281cfe08274d0e.jpg",
     desc: "Minimalist sophistication with futuristic performance.",
   },
 
   {
     name: "RANGE ROVER DEFENDER",
     image:
-      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/ac/e1/da/ace1da96aa30a2eae2e038c363da8db6.jpg",
     desc: "Bold capability designed for modern adventure.",
   },
 ]

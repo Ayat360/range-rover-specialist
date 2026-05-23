@@ -81,7 +81,7 @@ export default function Hero() {
 
       <img
         ref={imageRef}
-        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop"
+        src="https://i.pinimg.com/1200x/ac/e1/da/ace1da96aa30a2eae2e038c363da8db6.jpg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -93,10 +93,8 @@ export default function Hero() {
       {/* grid */}
 
       <div className="absolute inset-0 opacity-[0.08]">
-
-        <div className="w-full h-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]"></div>
-
-      </div>
+  <div className="w-full h-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+</div>
 
       {/* content */}
 

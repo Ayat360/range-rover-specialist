@@ -8,25 +8,25 @@ const gallery = [
 
   {
     image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/18/e7/f3/18e7f3c2e86fd20e8cd93778092bc612.jpg",
     title:"Luxury Diagnostics"
   },
 
   {
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/6e/92/92/6e929233857c0b49ec72b0a4e5f02cd1.jpg",
     title:"Advanced Engineering"
   },
 
   {
     image:
-      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/70/6b/a0/706ba08e9c1b20b7fccf98122efc8e03.jpg",
     title:"Modern Rover Systems"
   },
 
   {
     image:
-      "https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=2070&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/d9/33/e2/d933e2bffd380a8ce9dbab1771b4ae90.jpg",
     title:"Electronic Modules"
   },
 
