@@ -212,7 +212,8 @@ export default function Navbar() {
 
           {/* CTA */}
 
-          <button
+          <a
+            href="#contact"
             className="
             magnetic
             px-6
@@ -228,7 +229,7 @@ export default function Navbar() {
             "
           >
             Book Appointment
-          </button>
+          </a>
 
         </div>
 

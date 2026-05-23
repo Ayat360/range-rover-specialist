@@ -6,6 +6,8 @@ import DiagnosticLab from "./components/DiagnosticLab"
 import StorySection from "./components/StorySection"
 import Cursor from "./components/Cursor"
 import Gallery from "./components/Gallery"
+import Booking from "./components/Booking"
+import Footer from "./components/Footer"
 
 export default function App() {
 
@@ -19,6 +21,8 @@ export default function App() {
       <StorySection />
       <Cursor />
       <Gallery />
+      <Booking />
+      <Footer />
     </>
   )
 }

@@ -12,7 +12,7 @@ export default function StorySection() {
 
     const panels = gsap.utils.toArray(".story-panel")
 
-    panels.forEach((panel,index)=>{
+    panels.forEach((panel)=>{
 
       gsap.fromTo(
         panel.querySelector(".story-content"),
