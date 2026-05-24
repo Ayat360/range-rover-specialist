@@ -46,8 +46,12 @@ app.post("/api/appointments", async (req, res) => {
 
   try {
 
+    console.log("REQ BODY:", req.body)
+
     const newAppointment =
-    await Appointment.create(req.body)
+      await Appointment.create(req.body)
+
+    console.log("SAVED:", newAppointment)
 
     res.status(201).json({
       success: true,
@@ -55,6 +59,8 @@ app.post("/api/appointments", async (req, res) => {
     })
 
   } catch (err) {
+
+    console.log("SERVER ERROR:", err)
 
     res.status(500).json({
       success: false,

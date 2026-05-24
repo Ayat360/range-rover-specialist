@@ -24,32 +24,58 @@ export default function Booking() {
   };
 
   // SUBMIT TO BACKEND
-  const handleSubmit = async () => {
-    try {
-      await fetch("http://localhost:5000/api/appointments", {
+const handleSubmit = async () => {
+
+  try {
+
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/appointments`,
+      {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json"
         },
+
         body: JSON.stringify(form)
-      });
+      }
+    )
 
-      alert("Booking Sent Successfully 🔥");
+    const data = await res.json()
 
-      // reset form (nice UX move)
+    console.log("Backend Response:", data)
+
+    // CHECK IF SERVER SUCCESS
+    if (res.ok && data.success) {
+
+      alert("Booking Sent Successfully 🔥")
+
+      // RESET FORM
       setForm({
         name: "",
         phone: "",
         vehicle: "",
         service: "Diagnostic Service",
         message: ""
-      });
+      })
 
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong ❌");
+    } else {
+
+      console.log(data)
+
+      alert("Server Error ❌")
+
     }
-  };
+
+  } catch (error) {
+
+    console.log("REAL ERROR:", error)
+
+    alert("Something went wrong ❌")
+
+  }
+
+}
 
   useEffect(() => {
     gsap.fromTo(
@@ -148,6 +174,7 @@ export default function Booking() {
         {/* button */}
         <div className="text-center mt-10">
           <button
+            type="button"
             onClick={handleSubmit}
             className="magnetic px-10 py-4 bg-white text-black font-semibold hover:bg-gray-300 transition-all duration-300"
           >
