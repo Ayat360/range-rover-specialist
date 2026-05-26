@@ -10,7 +10,7 @@ export default function AdminDashboard() {
 
     try {
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`)
+      const res = await fetch("https://range-rover-specialist.onrender.com/api/appointments")
       const data = await res.json()
 
       setAppointments(data)

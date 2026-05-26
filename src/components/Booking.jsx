@@ -28,9 +28,7 @@ const handleSubmit = async () => {
 
   try {
 
-    const res = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/appointments`,
-      {
+    const res = await fetch("https://range-rover-specialist.onrender.com/api/appointments", {
         method: "POST",
 
         headers: {
