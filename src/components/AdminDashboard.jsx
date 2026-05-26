@@ -10,7 +10,9 @@ export default function AdminDashboard() {
 
     try {
 
-      const res = await fetch("https://range-rover-specialist.onrender.com/api/appointments")
+    const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/appointments`
+)
       const data = await res.json()
 
       setAppointments(data)
@@ -23,12 +25,19 @@ export default function AdminDashboard() {
 
 useEffect(() => {
 
-  const loadAppointments = async () => {
+  // LOAD INITIAL DATA
+  const loadData = async () => {
     await fetchAppointments()
   }
 
-  loadAppointments()
+  loadData()
 
+  // AUTO REFRESH
+  const interval = setInterval(() => {
+    fetchAppointments()
+  }, 5000)
+
+  // GSAP
   gsap.fromTo(
     ".admin-card",
     {
@@ -44,79 +53,147 @@ useEffect(() => {
     }
   )
 
+  // CLEANUP
+  return () => clearInterval(interval)
+
 }, [])
 
 
   return (
 
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+<div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+
+  {/* TOP HEADER */}
+  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+
+    <div>
+      <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+        CONTROL PANEL
+      </h1>
+      <p className="text-gray-400 mt-2">
+        Live diagnostic booking intelligence
+      </p>
+    </div>
+
+    <button className="px-6 py-3 bg-white text-black font-medium hover:bg-gray-300 transition">
+      Refresh System
+    </button>
+
+  </div>
+
+  {/* STATS CARDS */}
+  <div className="grid md:grid-cols-3 gap-6 mb-12">
+
+    <div className="bg-white/5 border border-white/10 p-6">
+      <p className="text-gray-400 text-sm">Total Requests</p>
+      <h2 className="text-3xl font-semibold">{appointments.length}</h2>
+    </div>
+
+    <div className="bg-white/5 border border-white/10 p-6">
+      <p className="text-gray-400 text-sm">Active Today</p>
+      <h2 className="text-3xl font-semibold">
+        {appointments.filter(a => {
+          const today = new Date().toDateString()
+          return new Date(a.createdAt).toDateString() === today
+        }).length}
+      </h2>
+    </div>
+
+    <div className="bg-white/5 border border-white/10 p-6">
+      <p className="text-gray-400 text-sm">System Status</p>
+      <h2 className="text-3xl font-semibold text-green-400">
+        LIVE
+      </h2>
+    </div>
+
+  </div>
+
+      {/* TABLE */}
+<div className="grid md:grid-cols-2 gap-6">
+
+  {appointments.map((item) => (
+    <div
+      key={item._id}
+      className="admin-card bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition"
+    >
 
       {/* HEADER */}
-      <div className="mb-10">
+      <div className="flex justify-between items-center">
+        <h2 className="text-xl font-semibold">{item.name}</h2>
 
-        <h1 className="text-4xl md:text-6xl font-semibold">
-          ADMIN CONTROL PANEL
-        </h1>
+        <span className={`text-xs px-3 py-1 border ${
+          item.status === "Done"
+            ? "border-green-500 text-green-400"
+            : "border-yellow-500 text-yellow-400"
+        }`}>
+          {item.status}
+        </span>
+      </div>
 
-        <p className="text-gray-400 mt-3">
-          Live diagnostic booking requests
-        </p>
+      {/* INFO */}
+      <div className="mt-4 text-sm text-gray-300 space-y-1">
+        <p>📞 {item.phone}</p>
+        <p>🚗 {item.vehicle}</p>
+        <p>🔧 {item.service}</p>
+      </div>
+
+      {/* MESSAGE */}
+      <div className="mt-4 text-gray-400 italic border-t border-white/10 pt-3">
+        "{item.message}"
+      </div>
+
+      {/* ACTIONS */}
+      <div className="flex gap-3 mt-5">
+<button
+  onClick={async () => {
+
+    try {
+
+      await fetch(
+        `${import.meta.env.VITE_API_URL}/api/appointments/${item._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            status: "Done"
+          })
+        }
+      )
+
+      // REFRESH DATA INSTANTLY
+      fetchAppointments()
+
+    } catch (err) {
+      console.log(err)
+    }
+
+  }}
+  className="px-3 py-2 bg-green-500 text-black text-sm"
+>
+  Mark Done
+</button>
 
         <button
-          onClick={fetchAppointments}
-          className="mt-6 px-6 py-3 bg-white text-black font-medium hover:bg-gray-300"
+          onClick={async () => {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/appointments/${item._id}`, {
+              method: "DELETE"
+            })
+
+            window.location.reload()
+          }}
+          className="px-3 py-2 bg-red-500 text-white text-sm"
         >
-          Refresh Data
+          Delete
         </button>
 
       </div>
 
-      {/* TABLE */}
-      <div className="overflow-x-auto">
+    </div>
+  ))}
 
-        <table className="w-full text-left border border-white/10">
-
-          <thead className="bg-white/5">
-            <tr>
-              <th className="p-4">Name</th>
-              <th className="p-4">Phone</th>
-              <th className="p-4">Vehicle</th>
-              <th className="p-4">Service</th>
-              <th className="p-4">Message</th>
-              <th className="p-4">Date</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            {appointments.map((item, index) => (
-
-              <tr
-                key={index}
-                className="border-t border-white/10 admin-card hover:bg-white/5 transition"
-              >
-
-                <td className="p-4">{item.name}</td>
-                <td className="p-4">{item.phone}</td>
-                <td className="p-4">{item.vehicle}</td>
-                <td className="p-4">{item.service}</td>
-                <td className="p-4 text-gray-400">
-                  {item.message}
-                </td>
-                <td className="p-4 text-gray-500">
-                  {new Date(item.createdAt).toLocaleString()}
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
-
+</div>
     </div>
 
   )

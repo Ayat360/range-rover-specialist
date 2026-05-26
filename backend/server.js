@@ -11,6 +11,11 @@ app.use(cors())
 app.use(express.json())
 
 // =====================
+// START SERVER
+// =====================
+const PORT = process.env.PORT || 5000
+
+// =====================
 // CONNECT DATABASE
 // =====================
 mongoose.set("bufferCommands", false)
@@ -38,6 +43,13 @@ const AppointmentSchema = new mongoose.Schema({
   vehicle: String,
   service: String,
   message: String,
+
+  // NEW STATUS FIELD
+  status: {
+    type: String,
+    default: "Pending"
+  },
+
   createdAt: {
     type: Date,
     default: Date.now
@@ -85,13 +97,51 @@ app.post("/api/appointments", async (req, res) => {
 // GET ALL APPOINTMENTS (ADMIN)
 app.get("/api/appointments", async (req, res) => {
 
-  const data = await Appointment.find().sort({ createdAt: -1 })
+  try {
 
-  res.json(data)
+    const data =
+    await Appointment.find().sort({ createdAt: -1 })
+
+    res.json(data)
+
+  } catch (err) {
+
+    console.log(err)
+
+    res.status(500).json({
+      error: err.message
+    })
+
+  }
 
 })
+// =====================
+// UPDATE STATUS
+// =====================
+app.patch("/api/appointments/:id", async (req, res) => {
+  try {
+    const updated = await Appointment.findByIdAndUpdate(
+      req.params.id,
+      { status: req.body.status },
+      { new: true }
+    )
+
+    res.json({ success: true, data: updated })
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message })
+  }
+})
+
 
 // =====================
-// START SERVER
+// DELETE APPOINTMENT
 // =====================
-const PORT = process.env.PORT || 5000
+app.delete("/api/appointments/:id", async (req, res) => {
+  try {
+    await Appointment.findByIdAndDelete(req.params.id)
+
+    res.json({ success: true, message: "Deleted" })
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message })
+  }
+})
