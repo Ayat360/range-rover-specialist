@@ -10,12 +10,9 @@ import Booking from "./components/Booking"
 import Footer from "./components/Footer"
 
 import Loader from "./components/Loader"
-import useSound from "./hooks/useSound"
 import ControlPanel from "./components/ControlPanel"
 
 export default function App() {
-
-  useSound() // 🔥 THIS FIXES IT
 
   return (
     <>

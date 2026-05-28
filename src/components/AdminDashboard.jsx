@@ -75,7 +75,7 @@ useEffect(() => {
       </p>
     </div>
 
-    <button className="px-6 py-3 bg-white text-black font-medium hover:bg-gray-300 transition">
+    <button className=" px-6 py-3 bg-white text-black font-medium hover:bg-gray-300 transition">
       Refresh System
     </button>
 
@@ -183,7 +183,7 @@ useEffect(() => {
 
             window.location.reload()
           }}
-          className="px-3 py-2 bg-red-500 text-white text-sm"
+          className=" px-3 py-2 bg-red-500 text-white text-sm"
         >
           Delete
         </button>

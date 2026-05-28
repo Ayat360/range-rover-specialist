@@ -186,11 +186,11 @@ export default function Models() {
 
               <div className="mt-10 flex gap-4 flex-wrap">
 
-                <button className="magnetic px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
+                <button className=" px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
                   Explore Model
                 </button>
 
-                <button className="magnetic px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
+                <button className=" px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
                   Diagnostics
                 </button>
 

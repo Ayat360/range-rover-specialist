@@ -215,7 +215,6 @@ export default function Navbar() {
           <a
             href="#contact"
             className="
-            magnetic
             px-6
             py-3
             border

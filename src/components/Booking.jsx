@@ -13,6 +13,8 @@ export default function Booking() {
     message: ""
   });
 
+  const [error, setError] = useState("")
+
   const sectionRef = useRef(null);
 
   // HANDLE CHANGE
@@ -26,15 +28,36 @@ export default function Booking() {
   // SUBMIT TO BACKEND
 const handleSubmit = async () => {
 
+  // VALIDATION
+  if (
+    !form.name.trim() ||
+    !form.phone.trim() ||
+    !form.vehicle.trim() ||
+    !form.service.trim() ||
+    !form.message.trim()
+  ) {
+    setError("Please complete all fields before submitting.");
+    return;
+  }
   try {
 
-    const res = await fetch("https://range-rover-specialist.onrender.com/api/appointments", {
-        method: "POST",
+    // fetch code here
 
+  } catch (error) {
+
+    console.log(error)
+
+  }
+
+  try {
+
+    const res = await fetch(
+      "https://range-rover-specialist.onrender.com/api/appointments",
+      {
+        method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-
         body: JSON.stringify(form)
       }
     )
@@ -43,12 +66,10 @@ const handleSubmit = async () => {
 
     console.log("Backend Response:", data)
 
-    // CHECK IF SERVER SUCCESS
     if (res.ok && data.success) {
 
       alert("Booking Sent Successfully 🔥")
 
-      // RESET FORM
       setForm({
         name: "",
         phone: "",
@@ -59,15 +80,13 @@ const handleSubmit = async () => {
 
     } else {
 
-      console.log(data)
-
       alert("Server Error ❌")
 
     }
 
   } catch (error) {
 
-    console.log("REAL ERROR:", error)
+    console.log(error)
 
     alert("Something went wrong ❌")
 
@@ -170,11 +189,19 @@ const handleSubmit = async () => {
         ></textarea>
 
         {/* button */}
-        <div className="text-center mt-10">
+        {
+  error && (
+<p className="bg-red-500/10 border border-red-500/30 text-red-300 text-center p-4 rounded-xl mb-5">
+  {error}
+</p>
+  )
+}
+
+        <div className=" text-center mt-10">
           <button
             type="button"
             onClick={handleSubmit}
-            className="magnetic px-10 py-4 bg-white text-black font-semibold hover:bg-gray-300 transition-all duration-300"
+            className=" px-10 py-4 bg-white text-black font-semibold hover:bg-gray-300 transition-all duration-300"
           >
             Send Booking Request
           </button>

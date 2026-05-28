@@ -7,10 +7,18 @@ export default function Hero() {
   const textRef = useRef(null)
   const buttonRef = useRef(null)
   const imageRef = useRef(null)
+  const cardRef = useRef(null)
 
   useEffect(() => {
-
     const tl = gsap.timeline()
+
+    gsap.to(cardRef.current, {
+  y: -15,
+  duration: 3,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut"
+})
 
     tl.fromTo(
       titleRef.current,
@@ -105,10 +113,10 @@ export default function Hero() {
         </p>
 
         <h1
-          ref={titleRef}
-          className="text-5xl md:text-8xl font-semibold leading-[0.9]"
-        >
-          FUTURISTIC
+  ref={titleRef}
+  className="text-5xl md:text-8xl font-semibold leading-[0.9] tracking-[-0.04em]"
+>
+          ADVANCED
           <br />
           RANGE ROVER
           <br />
@@ -129,11 +137,11 @@ export default function Hero() {
           className="mt-10 flex flex-wrap gap-4"
         >
 
-          <button className="magnetic px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
+          <button className=" px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
             Book Appointment
           </button>
 
-          <button className="magnetic px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
+          <button className=" px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
             Explore Services
           </button>
 
@@ -143,7 +151,10 @@ export default function Hero() {
 
       {/* floating diagnostic card */}
 
-      <div className="absolute bottom-10 right-10 hidden lg:block">
+      <div
+  ref={cardRef}
+  className="absolute bottom-10 right-10 hidden lg:block"
+>
 
         <div className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 w-[320px]">
 

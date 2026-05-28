@@ -7,28 +7,28 @@ gsap.registerPlugin(ScrollTrigger)
 const gallery = [
 
   {
-    image:
-      "https://i.pinimg.com/1200x/18/e7/f3/18e7f3c2e86fd20e8cd93778092bc612.jpg",
-    title:"Luxury Diagnostics"
+    image:"https://i.pinimg.com/1200x/18/e7/f3/18e7f3c2e86fd20e8cd93778092bc612.jpg",
+    title:"Luxury Diagnostics",
+    category:"Diagnostics"
   },
 
   {
-    image:
-      "https://i.pinimg.com/736x/6e/92/92/6e929233857c0b49ec72b0a4e5f02cd1.jpg",
-    title:"Advanced Engineering"
+    image:"https://i.pinimg.com/736x/6e/92/92/6e929233857c0b49ec72b0a4e5f02cd1.jpg",
+    title:"Advanced Engineering",
+    category:"Engineering"
   },
 
   {
-    image:
-      "https://i.pinimg.com/736x/70/6b/a0/706ba08e9c1b20b7fccf98122efc8e03.jpg",
-    title:"Modern Rover Systems"
+    image:"https://i.pinimg.com/736x/70/6b/a0/706ba08e9c1b20b7fccf98122efc8e03.jpg",
+    title:"Modern Rover Systems",
+    category:"Electronics"
   },
 
   {
-    image:
-      "https://i.pinimg.com/1200x/d9/33/e2/d933e2bffd380a8ce9dbab1771b4ae90.jpg",
-    title:"Electronic Modules"
-  },
+    image:"https://i.pinimg.com/1200x/d9/33/e2/d933e2bffd380a8ce9dbab1771b4ae90.jpg",
+    title:"Electronic Modules",
+    category:"Programming"
+  }
 
 ]
 
@@ -137,8 +137,8 @@ export default function Gallery() {
               <div className="absolute bottom-0 left-0 p-8 z-10">
 
                 <p className="text-gray-400 text-sm uppercase tracking-[0.3em]">
-                  Range Rover Specialist
-                </p>
+  {item.category}
+</p>
 
                 <h3 className="text-3xl md:text-4xl font-semibold mt-3">
                   {item.title}

@@ -11,21 +11,20 @@ export default function Footer() {
   useEffect(() => {
 
     gsap.fromTo(
-      ".footer-item",
+      ".footer-reveal",
       {
-        y: 80,
+        y: 50,
         opacity: 0
       },
       {
         y: 0,
         opacity: 1,
-        stagger: 0.15,
         duration: 1,
+        stagger: 0.15,
         ease: "power3.out",
-
         scrollTrigger: {
           trigger: footerRef.current,
-          start: "top 80%"
+          start: "top 85%"
         }
       }
     )
@@ -36,76 +35,139 @@ export default function Footer() {
 
     <footer
       ref={footerRef}
-      className="relative bg-black border-t border-white/10 py-20 px-6 md:px-16 overflow-hidden"
+      className="relative bg-black border-t border-white/10 overflow-hidden"
     >
 
-      {/* glow background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 blur-[160px] rounded-full"></div>
+      {/* glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-white/[0.03] blur-[180px] rounded-full"></div>
 
-      <div className="relative z-10 grid md:grid-cols-3 gap-10">
+      <div className="relative z-10 px-6 md:px-16 py-24">
 
-        {/* BRAND */}
-        <div className="footer-item">
-          <h1 className="text-xl tracking-[0.3em] uppercase font-semibold">
-            Range Rover Specialist
-          </h1>
+        {/* top area */}
+        <div className="footer-reveal">
 
-          <p className="text-gray-400 mt-6 leading-relaxed text-sm">
-            Precision diagnostics, advanced ECU programming, and expert Land Rover engineering.
-            Built for performance. Engineered for trust.
+          <p className="uppercase tracking-[0.5em] text-gray-500 text-xs mb-5">
+            Precision Engineering
           </p>
 
-          <p className="text-gray-500 mt-6 text-xs">
-            © {new Date().getFullYear()} All rights reserved.
+          <h2 className="text-5xl md:text-7xl font-semibold leading-none max-w-5xl">
+            RANGE ROVER
+            <br />
+            SPECIALIST
+          </h2>
+
+          <p className="mt-8 text-gray-400 max-w-2xl leading-relaxed">
+            Advanced diagnostics, ECU programming, suspension systems,
+            electronic fault tracing and complete engineering solutions
+            for modern Range Rover vehicles.
           </p>
+
         </div>
 
-        {/* LINKS */}
-        <div className="footer-item">
-          <h2 className="text-sm uppercase tracking-[0.4em] text-gray-400 mb-6">
-            Navigation
-          </h2>
+        {/* divider */}
+        <div className="footer-reveal mt-16 mb-16 h-px bg-white/10"></div>
 
-          <div className="flex flex-col gap-4 text-gray-300 text-sm">
+        {/* content */}
+        <div className="grid lg:grid-cols-3 gap-12">
 
-            <a href="#home" className="hover:text-white transition">Home</a>
-            <a href="#services" className="hover:text-white transition">Services</a>
-            <a href="#diagnostics" className="hover:text-white transition">Diagnostics</a>
-            <a href="#models" className="hover:text-white transition">Models</a>
-            <a href="#contact" className="hover:text-white transition">Booking</a>
+          {/* navigation */}
+          <div className="footer-reveal">
+
+            <p className="text-gray-500 uppercase tracking-[0.4em] text-xs mb-8">
+              Navigation
+            </p>
+
+            <div className="space-y-4">
+
+              <a href="#home" className="block hover:text-white transition">
+                Home
+              </a>
+
+              <a href="#services" className="block hover:text-white transition">
+                Services
+              </a>
+
+              <a href="#gallery" className="block hover:text-white transition">
+                Gallery
+              </a>
+
+              <a href="#contact" className="block hover:text-white transition">
+                Booking
+              </a>
+
+            </div>
 
           </div>
-        </div>
 
-        {/* CONTACT */}
-        <div className="footer-item">
-          <h2 className="text-sm uppercase tracking-[0.4em] text-gray-400 mb-6">
-            Contact
-          </h2>
+          {/* capabilities */}
+          <div className="footer-reveal">
 
-          <div className="text-gray-300 text-sm space-y-4">
+            <p className="text-gray-500 uppercase tracking-[0.4em] text-xs mb-8">
+              Capabilities
+            </p>
 
-            <p>📍 312 Old Ojo Road, Oluti Lagos</p>
-            <p>📞 +234 907 985 1714</p>
-            <p>⚙️ TOPIx & PLUTO JLR Systems</p>
+            <div className="space-y-4 text-gray-300">
+
+              <p>ECU Programming</p>
+              <p>Electronic Diagnostics</p>
+              <p>Air Suspension Repair</p>
+              <p>Module Configuration</p>
+              <p>Wiring Solutions</p>
+
+            </div>
 
           </div>
 
-          {/* CTA */}
-          <a
-            href="#contact"
-            className="magnetic inline-block mt-8 px-6 py-3 bg-white text-black font-medium hover:bg-gray-300 transition"
-          >
-            Book Diagnosis
-          </a>
+          {/* contact */}
+          <div className="footer-reveal">
+
+            <p className="text-gray-500 uppercase tracking-[0.4em] text-xs mb-8">
+              Contact
+            </p>
+
+            <div className="space-y-4 text-gray-300">
+
+              <p>312 Old Ojo Road, Lagos</p>
+              <p>+234 907 985 1714</p>
+              <p>TOPIx Diagnostic System</p>
+
+            </div>
+
+            <a
+              href="#contact"
+              className="
+              inline-flex
+              items-center
+              mt-10
+              px-7
+              py-4
+              bg-white
+              text-black
+              font-medium
+              hover:bg-gray-300
+              transition
+              "
+            >
+              Book Appointment
+            </a>
+
+          </div>
 
         </div>
 
-      </div>
+        {/* bottom */}
+        <div className="footer-reveal mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-500">
 
-      {/* bottom line */}
-      <div className="mt-16 border-t border-white/10 pt-6 text-center text-gray-500 text-xs">
-        Built with precision engineering mindset — Range Rover Specialist Lab
+          <span>
+            © {new Date().getFullYear()} Range Rover Specialist
+          </span>
+
+          <span>
+            Advanced Diagnostics • ECU Programming • Engineering Solutions
+          </span>
+
+        </div>
+
       </div>
 
     </footer>

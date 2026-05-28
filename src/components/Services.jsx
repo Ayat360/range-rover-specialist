@@ -98,7 +98,7 @@ export default function Services() {
 
             <div
               key={index}
-              className="service-card group relative bg-[#0d0d0d] border border-white/10 p-8 overflow-hidden hover:border-white/30 transition-all duration-500"
+              className="service-card group relative bg-[#0d0d0d] border border-white/10 p-8 overflow-hidden hover:border-white/30 hover:-translate-y-3 transition-all duration-500"
             >
 
               {/* animated glow */}
@@ -121,7 +121,7 @@ export default function Services() {
 
                 </div>
 
-                <h3 className="text-2xl font-semibold mt-10">
+                <h3 className="text-2xl font-semibold mt-10 group-hover:translate-x-2 transition-all duration-500">
                   {service.title}
                 </h3>
 
