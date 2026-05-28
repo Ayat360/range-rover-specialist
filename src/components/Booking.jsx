@@ -15,6 +15,12 @@ export default function Booking() {
 
   const [error, setError] = useState("")
 
+const [alert, setAlert] = useState({
+  show: false,
+  type: "",
+  message: ""
+})
+
   const sectionRef = useRef(null);
 
   // HANDLE CHANGE
@@ -68,7 +74,11 @@ const handleSubmit = async () => {
 
     if (res.ok && data.success) {
 
-      alert("Booking Sent Successfully 🔥")
+      setAlert({
+  show: true,
+  type: "success",
+  message: "Booking received. System processing your request 🔥"
+})
 
       setForm({
         name: "",
@@ -80,7 +90,11 @@ const handleSubmit = async () => {
 
     } else {
 
-      alert("Server Error ❌")
+      setAlert({
+  show: true,
+  type: "error",
+  message: "Something went wrong. Try again."
+})
 
     }
 
@@ -92,6 +106,24 @@ const handleSubmit = async () => {
 
   }
 
+}
+
+ useEffect(() => {
+  if (alert.show) {
+    const timer = setTimeout(() => {
+      setAlert({ show: false, type: "", message: "" })
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }
+}, [alert])
+
+if (alert.show) {
+  gsap.fromTo(
+    ".custom-alert",
+    { x: 100, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
+  )
 }
 
   useEffect(() => {
@@ -121,6 +153,19 @@ const handleSubmit = async () => {
       ref={sectionRef}
       className="relative py-32 px-6 md:px-16 bg-black overflow-hidden"
     >
+
+{alert.show && (
+  <div
+    className={`fixed top-6 right-6 z-[999] px-6 py-4 rounded-xl border backdrop-blur-md shadow-lg text-sm font-medium
+    ${alert.type === "success"
+        ? "bg-green-500/10 border-green-500/30 text-green-300"
+        : "bg-red-500/10 border-red-500/30 text-red-300"
+    }`}
+  >
+    {alert.message}
+  </div>
+)}
+
       {/* glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/5 blur-[180px] rounded-full"></div>
 
