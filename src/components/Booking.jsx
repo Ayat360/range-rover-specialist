@@ -43,6 +43,10 @@ const handleSubmit = async () => {
     !form.message.trim()
   ) {
     setError("Please complete all fields before submitting.");
+
+setTimeout(() => {
+  setError("")
+}, 5000)
     return;
   }
   try {
@@ -102,7 +106,11 @@ const handleSubmit = async () => {
 
     console.log(error)
 
-    alert("Something went wrong ❌")
+    setAlert({
+  show: true,
+  type: "error",
+  message: "Something went wrong. Try again."
+})
 
   }
 
@@ -112,21 +120,30 @@ const handleSubmit = async () => {
   if (alert.show) {
     const timer = setTimeout(() => {
       setAlert({ show: false, type: "", message: "" })
-    }, 3000)
+    }, 5000)
 
     return () => clearTimeout(timer)
   }
 }, [alert])
 
-if (alert.show) {
-  gsap.fromTo(
-    ".custom-alert",
-    { x: 100, opacity: 0 },
-    { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
-  )
-}
-
   useEffect(() => {
+  if (alert.show) {
+
+    gsap.fromTo(
+      ".custom-alert",
+      {
+        x: 100,
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power3.out"
+      }
+    )
+
+  } 
     gsap.fromTo(
       ".booking-item",
       {
@@ -145,7 +162,7 @@ if (alert.show) {
         }
       }
     );
-  }, []);
+  }, [alert.show]);
 
   return (
     <section
@@ -155,13 +172,14 @@ if (alert.show) {
     >
 
 {alert.show && (
-  <div
-    className={`fixed top-6 right-6 z-[999] px-6 py-4 rounded-xl border backdrop-blur-md shadow-lg text-sm font-medium
-    ${alert.type === "success"
-        ? "bg-green-500/10 border-green-500/30 text-green-300"
-        : "bg-red-500/10 border-red-500/30 text-red-300"
-    }`}
-  >
+<div
+  className={`custom-alert fixed top-4 left-4 right-4 md:left-auto md:right-6 md:top-6 max-w-md z-[999] px-6 py-4 rounded-xl border backdrop-blur-md shadow-lg text-sm font-medium
+  ${
+    alert.type === "success"
+      ? "bg-green-500/10 border-green-500/30 text-green-300"
+      : "bg-red-500/10 border-red-500/30 text-red-300"
+  }`}
+>
     {alert.message}
   </div>
 )}
