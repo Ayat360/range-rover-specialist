@@ -8,6 +8,7 @@ import StorySection from "./components/StorySection"
 import Gallery from "./components/Gallery"
 import Booking from "./components/Booking"
 import Footer from "./components/Footer"
+import Testimonials from "./components/Testimonials"
 
 import Loader from "./components/Loader"
 import ControlPanel from "./components/ControlPanel"
@@ -26,6 +27,7 @@ export default function App() {
       <DiagnosticLab />
       <StorySection />
       <Gallery />
+      <Testimonials />
       <Booking />
       <ControlPanel />
       <Footer />
