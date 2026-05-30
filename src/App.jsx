@@ -13,6 +13,7 @@ import Process from "./components/Process"
 
 import Loader from "./components/Loader"
 import ControlPanel from "./components/ControlPanel"
+import CTA from "./components/CTA"
 
 export default function App() {
 
@@ -30,6 +31,7 @@ export default function App() {
       <StorySection />
       <Gallery />
       <Testimonials />
+      <CTA />
       <Booking />
       <ControlPanel />
       <Footer />
