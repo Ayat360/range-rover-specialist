@@ -20,7 +20,7 @@ import WhatsappButton from "./components/WhatsappButton"
 export default function App() {
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Loader />
       <Cursor />
 
@@ -39,6 +39,6 @@ export default function App() {
       <Footer />
       <WhatsappButton />
       <BackToTop />
-    </>
+    </div>
   )
 }
