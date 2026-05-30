@@ -9,6 +9,7 @@ import Gallery from "./components/Gallery"
 import Booking from "./components/Booking"
 import Footer from "./components/Footer"
 import Testimonials from "./components/Testimonials"
+import Process from "./components/Process"
 
 import Loader from "./components/Loader"
 import ControlPanel from "./components/ControlPanel"
@@ -23,6 +24,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Services />
+      <Process />
       <Models />
       <DiagnosticLab />
       <StorySection />
