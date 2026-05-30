@@ -1,3 +1,4 @@
+import BackToTop from "./components/BackToTop"
 import Cursor from "./components/Cursor"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
@@ -14,6 +15,7 @@ import Process from "./components/Process"
 import Loader from "./components/Loader"
 import ControlPanel from "./components/ControlPanel"
 import CTA from "./components/CTA"
+import WhatsappButton from "./components/WhatsappButton"
 
 export default function App() {
 
@@ -35,6 +37,8 @@ export default function App() {
       <Booking />
       <ControlPanel />
       <Footer />
+      <WhatsappButton />
+      <BackToTop />
     </>
   )
 }

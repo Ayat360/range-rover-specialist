@@ -46,6 +46,20 @@ export default function CTA() {
     )
 
     .fromTo(
+  ".cta-panel",
+  {
+    y: 40,
+    opacity: 0
+  },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 1
+  },
+  "-=0.5"
+)
+
+    .fromTo(
       ".cta-btn",
       {
         y: 20,
@@ -90,6 +104,72 @@ export default function CTA() {
           modern Land Rover and Range Rover systems.
 
         </p>
+
+        <div className="cta-panel mt-14 mb-14 max-w-4xl mx-auto">
+
+  <div className="
+relative
+border
+border-white/10
+bg-white/[0.02]
+p-8
+md:p-10
+overflow-hidden
+">
+
+    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+
+<div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      <div>
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">
+          Diagnostics
+        </p>
+
+        <h3 className="text-4xl font-semibold mt-3">
+          500+
+        </h3>
+
+        <p className="text-gray-400 mt-2 text-sm">
+          Vehicle scans completed
+        </p>
+      </div>
+
+      <div>
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">
+          Technology
+        </p>
+
+        <h3 className="text-4xl font-semibold mt-3">
+          TOPIx
+        </h3>
+
+        <p className="text-gray-400 mt-2 text-sm">
+          Official JLR diagnostic platform
+        </p>
+      </div>
+
+      <div>
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">
+          Support
+        </p>
+
+        <h3 className="text-4xl font-semibold mt-3">
+          24/7
+        </h3>
+
+        <p className="text-gray-400 mt-2 text-sm">
+          Fast consultation response
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
         <a
           href="#contact"
