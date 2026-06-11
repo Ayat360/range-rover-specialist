@@ -13,7 +13,6 @@ import Testimonials from "./components/Testimonials"
 import Process from "./components/Process"
 
 import Loader from "./components/Loader"
-import ControlPanel from "./components/ControlPanel"
 import CTA from "./components/CTA"
 import WhatsappButton from "./components/WhatsappButton"
 
@@ -35,7 +34,6 @@ export default function App() {
       <Testimonials />
       <CTA />
       <Booking />
-      <ControlPanel />
       <Footer />
       <WhatsappButton />
       <BackToTop />
