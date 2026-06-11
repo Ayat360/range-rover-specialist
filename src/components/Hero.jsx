@@ -137,13 +137,19 @@ export default function Hero() {
           className="mt-10 flex flex-wrap gap-4"
         >
 
-          <button className=" px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300">
-            Book Appointment
-          </button>
+          <a
+  href="#contact"
+  className="inline-flex px-8 py-4 bg-white text-black font-medium hover:bg-gray-300 transition-all duration-300"
+>
+  Book Appointment
+</a>
 
-          <button className=" px-8 py-4 border border-white/20 hover:border-white transition-all duration-300">
-            Explore Services
-          </button>
+          <a
+  href="#services"
+  className="inline-flex px-8 py-4 border border-white/20 hover:border-white transition-all duration-300"
+>
+  Explore Services
+</a>
 
         </div>
 
