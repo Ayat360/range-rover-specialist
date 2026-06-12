@@ -33,6 +33,29 @@ mongoose.connect(process.env.MONGO_URI)
     console.log("MongoDB connection failed ❌", err)
   })
 
+  // =====================
+// PIN AUTH (SIMPLE ADMIN LOGIN)
+// =====================
+app.post("/api/admin/login", (req, res) => {
+
+  const { pin } = req.body
+
+  if (pin === process.env.ADMIN_PIN) {
+
+    return res.json({
+      success: true
+    })
+
+  }
+
+  res.status(401).json({
+    success: false,
+    message: "Invalid PIN"
+  })
+
+})
+
+
 // =====================
 // APPOINTMENT MODEL
 // =====================

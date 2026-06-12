@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react"
+import { Navigate } from "react-router-dom"
 import gsap from "gsap"
 
 export default function AdminDashboard() {
 
   const [appointments, setAppointments] = useState([])
 
+  const isAdmin =
+    sessionStorage.getItem("adminAuth") === "true"
+
   // FETCH DATA
   const fetchAppointments = async () => {
 
     try {
 
-    const res = await fetch(
-  `${import.meta.env.VITE_API_URL}/api/appointments`
-)
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/appointments`
+      )
+
       const data = await res.json()
 
       setAppointments(data)
@@ -23,40 +28,44 @@ export default function AdminDashboard() {
 
   }
 
-useEffect(() => {
+  useEffect(() => {
 
-  // LOAD INITIAL DATA
-  const loadData = async () => {
-    await fetchAppointments()
-  }
-
-  loadData()
-
-  // AUTO REFRESH
-  const interval = setInterval(() => {
-    fetchAppointments()
-  }, 5000)
-
-  // GSAP
-  gsap.fromTo(
-    ".admin-card",
-    {
-      y: 80,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      stagger: 0.1,
-      duration: 1,
-      ease: "power3.out"
+    // LOAD INITIAL DATA
+    const loadData = async () => {
+      await fetchAppointments()
     }
-  )
 
-  // CLEANUP
-  return () => clearInterval(interval)
+    loadData()
 
-}, [])
+    // AUTO REFRESH
+    const interval = setInterval(() => {
+      fetchAppointments()
+    }, 5000)
+
+    // GSAP
+    gsap.fromTo(
+      ".admin-card",
+      {
+        y: 80,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power3.out"
+      }
+    )
+
+    return () => clearInterval(interval)
+
+  }, [])
+
+  // SECURITY CHECK
+  if (!isAdmin) {
+    return <Navigate to="/admin-login" />
+  }
 
 
   return (
